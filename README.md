@@ -118,6 +118,24 @@ Below are the steps detailing how to manually patch each component (oxAuth, oxTr
  - Copy new war into `/opt/gluu/jetty/idp/webapps/` directory
  - Start `idp` service
 
+##### Casa
+
+ - Login to chroot (eg. `service gluu-server-3.1.5 login`, `gluu-serverd login`, etc.)
+ - Create a temporary directory: `cd /root && mkdir casa`
+ - Extract casa war contents: `jar -xf /opt/gluu/jetty/casa/webapps/casa.war`
+ - Enter the libs directory: `cd WEB-INF/lib` - Remove old log4j jars: `rm log4*`
+ - Download new log4j files
+      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar` 
+      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.0/log4j-1.2-api-2.17.0.jar`
+      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar`
+      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.0/log4j-slf4j-impl-2.17.0.jar`
+ - Run `cd ../..`
+ - Repack war: `jar -cf casa.war *` (for 4.x systems the `jar` executable might not be in the PATH, you can locate it under `/opt/amazon-corretto.../bin` directory)
+ - Backup your current war: `cp /opt/gluu/jetty/casa/webapps/casa.war casa.war.bak`
+ - Stop casa service
+ - Copy patched war: `cp casa.war /opt/gluu/jetty/casa/webapps`
+ - Start casa
+
 ##### Shibboleth ( optional ) 
 
  - Go to `/opt/shibboleth-idp/webapp/WEB-INF/lib/` location
