@@ -1,6 +1,6 @@
 # Patching the Log4j vulnerability in Gluu Server
 
-#### Gluu Server versions covered: Gluu v4, v3 ( from 3.1.5 to 3.1.8 ), Community Edition, Cloud Native and Snapcraft.
+#### Gluu Server versions covered: Gluu v4, v3 ( from 3.1.5 to 3.1.8 ), Enterprise Edition, Cloud Native and Snapcraft.
 #### Security Vulnerabilities: CVE-2021-45105, CVE-2021-45046 and CVE-2021-44228 
 #### Log4j library versions affected: 2.1.6 and earlier 
 &nbsp;
