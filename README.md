@@ -44,7 +44,7 @@ We developed and published a script to automate the entire update process. Here 
 
 ## Method #2: Using manual method
  
-Below are the steps detailing how to manually patch each component (oxAuth, oxTrust/identity, IDP and Shibboleth, in this case ) within Gluu Server. 
+Below are the steps detailing how to manually patch each component (oxAuth, oxTrust/identity, IDP, Casa and Shibboleth, in this case ) within Gluu Server. 
 
 ##### oxAuth
 
