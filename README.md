@@ -63,8 +63,8 @@ Below are the steps detailing how to manually patch each component (oxAuth, oxTr
  - It's time to re-pack war: 
    - `cd  ../../../`
    - `cd ./war`
-     - For 3.x system: `/opt/jdk1.8.0_181/bin/jar -cvf oxauth.war *`
-     - For 4.x or newer 3.x system: `/opt/amazon-corretto-11.0.8.10.1-linux-x64/bin/jar -cvf oxauth.war *` or `/opt/amazon-corretto-8.222.10.1-linux-x64/bin/jar -cvf oxauth.war *`
+     - For 3.1.5 or 3.1.6 system: `/opt/jdk1.8.0_181/bin/jar -cvf oxauth.war *`
+     - For 4.x or > 3.1.7 system: `/opt/amazon-corretto-11.0.8.10.1-linux-x64/bin/jar -cvf oxauth.war *` or `/opt/amazon-corretto-8.222.10.1-linux-x64/bin/jar -cvf oxauth.war *`
  - Stop `oxauth` service
  - Check if there are any directories like these inside: `/opt/jetty-x.x/temp/jetty-localhost-808x-oxauth_war-_oxauth-any-.....` . If present, remove them all. 
  - Copy new war into `/opt/gluu/jetty/oxauth/webapps/` directory
@@ -88,12 +88,33 @@ Below are the steps detailing how to manually patch each component (oxAuth, oxTr
  - It's time to re-pack war: 
    - `cd  ../../../`
    - `cd ./war`
-     - For 3.x system: `/opt/jdk1.8.0_181/bin/jar -cvf identity.war *`
-     - For 4.x or newer 3.x system: `/opt/amazon-corretto-11.0.8.10.1-linux-x64/bin/jar -cvf identity.war *` or `/opt/amazon-corretto-8.222.10.1-linux-x64/bin/jar -cvf identity.war *`
+     - For 3.1.5 or 3.1.6 system: `/opt/jdk1.8.0_181/bin/jar -cvf identity.war *`
+     - For 4.x or > 3.1.7 system: `/opt/amazon-corretto-11.0.8.10.1-linux-x64/bin/jar -cvf identity.war *` or `/opt/amazon-corretto-8.222.10.1-linux-x64/bin/jar -cvf identity.war *`
  - Stop `identity` service
  - Check if there are any directories like these inside: `/opt/jetty-x.x/temp/jetty-localhost-808x-identity_war-_.....`. If present, remove them all.
  - Copy new war into `/opt/gluu/jetty/identity/webapps/` directory
  - Start identity service
+
+
+##### Casa
+
+ - Login to chroot (eg. `service gluu-server-3.1.5 login`, `gluu-serverd login`, etc.)
+ - Create a temporary directory: `cd /root && mkdir casa`
+ - Extract casa war contents: `jar -xf /opt/gluu/jetty/casa/webapps/casa.war`
+ - Enter the libs directory: `cd WEB-INF/lib` - Remove old log4j jars: `rm log4*`
+ - Download new log4j files
+      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar` 
+      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.0/log4j-1.2-api-2.17.0.jar`
+      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar`
+      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.0/log4j-slf4j-impl-2.17.0.jar`
+ 
+ - Run `cd ../..`
+ - Repack war: `jar -cf casa.war *` (for 4.x systems the `jar` executable might not be in the PATH, you can locate it under `/opt/amazon-corretto.../bin` directory)
+ - Backup your current war: `cp /opt/gluu/jetty/casa/webapps/casa.war casa.war.bak`
+ - Stop casa service
+ - Copy patched war: `cp casa.war /opt/gluu/jetty/casa/webapps`
+ - Start casa
+
 
 
 ##### idp
@@ -111,8 +132,8 @@ Below are the steps detailing how to manually patch each component (oxAuth, oxTr
  - It's time to re-pack war: 
    - `cd  ../../../`
    - `cd ./war`
-     - For 3.x system: `/opt/jdkx.x.x.x/bin/jar -cvf idp.war *`
-     - For 4.x or newer 3.x system: `/opt/amazon-corretto-11.0.8.10.1-linux-x64/bin/jar -cvf idp.war *` or `/opt/amazon-corretto-8.222.10.1-linux-x64/bin/jar -cvf idp.war *`
+     - For 3.1.5 or 3.1.6 system: `/opt/jdkx.x.x.x/bin/jar -cvf idp.war *`
+     - For 4.x or > 3.1.7 system: `/opt/amazon-corretto-11.0.8.10.1-linux-x64/bin/jar -cvf idp.war *` or `/opt/amazon-corretto-8.222.10.1-linux-x64/bin/jar -cvf idp.war *`
  - Stop `idp` service
  - Check if there are any directories like these inside: `/opt/jetty-x.x/temp/jetty-localhost-808x-oxauth_war-_.....`. If present, remove them all. 
  - Copy new war into `/opt/gluu/jetty/idp/webapps/` directory
@@ -129,6 +150,8 @@ Below are the steps detailing how to manually patch each component (oxAuth, oxTr
       - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar`
    - Change permission of these jars to `jetty:jetty`
  - Restart `identity` and `idp` services. 
+
+
 &nbsp;
 
 &nbsp;
