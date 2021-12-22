@@ -1,4 +1,4 @@
-# Log4j patching
+# Patching the Log4j vulnerability in Gluu Server
 
 ## Versions covered: Gluu v4, v3 ( from 3.1.5 to 3.1.8 ). Community Edition, Cloud Native and Snapcraft.
 
