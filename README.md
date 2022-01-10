@@ -1,7 +1,7 @@
 # Patching the Log4j vulnerability in Gluu Server
 
 #### Gluu Server versions covered: Gluu v4, v3 ( from 3.1.5 to 3.1.8 ), Enterprise Edition, Cloud Native and Snapcraft.
-#### Security Vulnerabilities: CVE-2021-45105, CVE-2021-45046 and CVE-2021-44228 
+#### Security Vulnerabilities: CVE-2021-44832, CVE-2021-45105, CVE-2021-45046 and CVE-2021-44228 
 #### Log4j library versions affected: 2.1.6 and earlier 
 &nbsp;
 
@@ -55,11 +55,11 @@ Below are the steps detailing how to manually patch each component (oxAuth, oxTr
  - Move all `log4j-*` into `old` directory: `mv -f ./war/WEB-INF/lib/log4j-*-2*.jar ./old` [ **Important!** Check the number of lib4j libraries it copied. **You need to  download and upgrade ONLY these artifacts.** DO NOT DOWNLOAD those files which are not required for your installation! ]
  - Go to library directory now: `cd ./war/WEB-INF/lib`
  - Download these jars in current `lib` directory: 
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar` 
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.0/log4j-1.2-api-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-jul/2.17.0/log4j-jul-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.0/log4j-slf4j-impl-2.17.0.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar` 
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.1/log4j-1.2-api-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-jul/2.17.1/log4j-jul-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar`
  - It's time to re-pack war: 
    - `cd  ../../../`
    - `cd ./war`
@@ -80,11 +80,11 @@ Below are the steps detailing how to manually patch each component (oxAuth, oxTr
  - Move all `log4j-*` into `old` directory: `mv -f ./war/WEB-INF/lib/log4j-*-2*.jar ./old` [ **Important!** Check the number of lib4j libraries it copied. **You need to  download and upgrade ONLY these artifacts.** DO NOT DOWNLOAD those files which are not required for your installation! ]
  - Go to library directory now: `cd ./war/WEB-INF/lib`
  - Download these jars in current `lib` directory: 
-      - `wget -c wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar`
-      - `wget -c wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.0/log4j-1.2-api-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-jul/2.17.0/log4j-jul-2.17.0.jar`
-      - `wget -c wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.0/log4j-slf4j-impl-2.17.0.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar` 
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.1/log4j-1.2-api-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-jul/2.17.1/log4j-jul-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar`
  - It's time to re-pack war: 
    - `cd  ../../../`
    - `cd ./war`
@@ -105,9 +105,9 @@ Below are the steps detailing how to manually patch each component (oxAuth, oxTr
  - Move all `log4j-*` into `old` directory: `mv -f ./war/WEB-INF/lib/log4j-*-2*.jar ./old`[ **Important!** Check the number of lib4j libraries it copied. **You need to  download and upgrade ONLY these artifacts.** DO NOT DOWNLOAD those files which are not required for your installation! ]
  - Go to library directory now: `cd ./war/WEB-INF/lib`
  - Download these jars in current `lib` directory: 
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.0/log4j-1.2-api-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.1/log4j-1.2-api-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar`
  - It's time to re-pack war: 
    - `cd  ../../../`
    - `cd ./war`
@@ -125,10 +125,10 @@ Below are the steps detailing how to manually patch each component (oxAuth, oxTr
  - Extract casa war contents: `jar -xf /opt/gluu/jetty/casa/webapps/casa.war`
  - Enter the libs directory: `cd WEB-INF/lib` - Remove old log4j jars: `rm log4*`
  - Download new log4j files
-      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar` 
-      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.0/log4j-1.2-api-2.17.0.jar`
-      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar`
-      - `wget https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.0/log4j-slf4j-impl-2.17.0.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar` 
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.1/log4j-1.2-api-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar`
  - Run `cd ../..`
  - Repack war: `jar -cf casa.war *` (for 4.x systems the `jar` executable might not be in the PATH, you can locate it under `/opt/amazon-corretto.../bin` directory)
  - Backup your current war: `cp /opt/gluu/jetty/casa/webapps/casa.war casa.war.bak`
@@ -139,12 +139,12 @@ Below are the steps detailing how to manually patch each component (oxAuth, oxTr
 ##### Shibboleth ( optional ) 
 
  - Go to `/opt/shibboleth-idp/webapp/WEB-INF/lib/` location
- - Backup `log4j-1.2-api-2.8.2.jar`, `log4j-api-2.8.2.jar` and `log4j-core-2.8.2.jar`
+ - Backup `log4j-1.2-api-2.x.x.jar`, `log4j-api-2.x.x.jar` and `log4j-core-2.x.x.jar`
  - Move these jar into separate directory
  - Download these jars in currnet ( /opt/shibboleth-idp/webapp/WEB-INF/lib/ ) directory: 
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.0/log4j-1.2-api-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.1/log4j-1.2-api-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar`
    - Change permission of these jars to `jetty:jetty`
  - Restart `identity` and `idp` services. 
 
@@ -180,11 +180,11 @@ Gluu Snap installations need to follow the manual method of patching:
  - Move all `log4j-*` into `old` directory: `mv -f ./war/WEB-INF/lib/log4j-*-2*.jar ./old` [ **Important!** Check the number of lib4j libraries it copied. **You need to  download and upgrade ONLY these artifacts.** DO NOT DOWNLOAD those files which are not required for your installation! ]
  - Go to library directory now: `cd ./war/WEB-INF/lib`
  - Download these jars in current `lib` directory: 
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar` 
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.0/log4j-1.2-api-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-jul/2.17.0/log4j-jul-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.0/log4j-slf4j-impl-2.17.0.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar` 
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.1/log4j-1.2-api-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-jul/2.17.1/log4j-jul-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar`
  - It's time to re-pack war: 
    - `cd  ../../../`
    - `cd ./war`
@@ -202,11 +202,11 @@ Gluu Snap installations need to follow the manual method of patching:
  - Move all `log4j-*` into `old` directory: `mv -f ./war/WEB-INF/lib/log4j-*-2*.jar ./old` [ **Important!** Check the number of lib4j libraries it copied. **You need to  download and upgrade ONLY these artifacts.** DO NOT DOWNLOAD those files which are not required for your installation! ]
  - Go to library directory now: `cd ./war/WEB-INF/lib`
  - Download these jars in current `lib` directory: 
-      - `wget -c wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar`
-      - `wget -c wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.0/log4j-1.2-api-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.0/log4j-core-2.17.0.jar`
-      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-jul/2.17.0/log4j-jul-2.17.0.jar`
-      - `wget -c wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.0/log4j-slf4j-impl-2.17.0.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar` 
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-1.2-api/2.17.1/log4j-1.2-api-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-jul/2.17.1/log4j-jul-2.17.1.jar`
+      - `wget -c https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar`
  - It's time to re-pack war: 
    - `cd  ../../../`
    - `cd ./war`
